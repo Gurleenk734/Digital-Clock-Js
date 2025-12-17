@@ -69,7 +69,7 @@ function stopTimer() {
 
 //resume&pause functionality
 function resumeTimer() {
-  if (timerRunning == true) {
+  if (timerRunning == true && startBtn.textContent === "Stop Clock") {
     clearInterval(timerID);
     timerRunning = false;
     resumeBtn.textContent = "Resume";
@@ -85,6 +85,7 @@ startBtn.addEventListener("click", function () {
   if (startBtn.textContent === "Start Clock") {
     startTimer();
     startBtn.textContent = "Stop Clock";
+    resumeBtn.textContent = "Pause";
   } else {
     stopTimer();
     startBtn.textContent = "Start Clock";
