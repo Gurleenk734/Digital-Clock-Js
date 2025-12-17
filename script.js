@@ -69,11 +69,13 @@ function stopTimer() {
 
 //resume&pause functionality
 function resumeTimer() {
-  if (timerRunning == true && startBtn.textContent === "Stop Clock") {
+  if (timerRunning) {
+    // Pause the clock
     clearInterval(timerID);
     timerRunning = false;
     resumeBtn.textContent = "Resume";
   } else {
+    // Resume the clock
     timerID = setInterval(updateClock, 1000);
     timerRunning = true;
     resumeBtn.textContent = "Pause";
@@ -81,15 +83,21 @@ function resumeTimer() {
 }
 
 //event listeners
+//event listener for Start/Stop button
 startBtn.addEventListener("click", function () {
   if (startBtn.textContent === "Start Clock") {
     startTimer();
     startBtn.textContent = "Stop Clock";
-    resumeBtn.textContent = "Pause";
+
+    // Show the Resume button after starting the clock
+    resumeBtn.style.display = "inline-block"; 
   } else {
     stopTimer();
     startBtn.textContent = "Start Clock";
+
+    // Hide Resume button when clock is stopped
+    resumeBtn.style.display = "none"; 
   }
-}
-);
+});
+
 resumeBtn.addEventListener("click", resumeTimer);
