@@ -82,12 +82,12 @@ function resumeTimer() {
 
 //event listeners
 startBtn.addEventListener("click", function () {
-  if (startBtn.textContent === "Start") {
+  if (startBtn.textContent === "Start Clock") {
     startTimer();
-    startBtn.textContent = "Stop";
+    startBtn.textContent = "Stop Clock";
   } else {
     stopTimer();
-    startBtn.textContent = "Start";
+    startBtn.textContent = "Start Clock";
   }
 }
 );
