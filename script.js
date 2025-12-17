@@ -2,7 +2,6 @@
 
 let display = document.querySelector(".time");
 let startBtn = document.getElementById("start");
-let stopBtn = document.getElementById("stop");
 let resumeBtn = document.getElementById("resume");
 
 let timerID;
@@ -82,6 +81,14 @@ function resumeTimer() {
 }
 
 //event listeners
-startBtn.addEventListener("click", startTimer);
-stopBtn.addEventListener("click", stopTimer);
+startBtn.addEventListener("click", function () {
+  if (startBtn.textContent === "Start") {
+    startTimer();
+    startBtn.textContent = "Stop";
+  } else {
+    stopTimer();
+    startBtn.textContent = "Start";
+  }
+}
+);
 resumeBtn.addEventListener("click", resumeTimer);
