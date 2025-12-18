@@ -53,6 +53,8 @@ function startTimer() {
   if (timerRunning == false) {
     timerID = setInterval(updateClock, 1000);
     timerRunning = true;
+
+   
   }
 
   return timerID;
@@ -64,7 +66,7 @@ function stopTimer() {
   timerRunning = false;
   initializeClock();
 
-  resumeBtn.textContent = "Resume";
+ resumeBtn.textContent = "Pause";
 }
 
 //resume&pause functionality
@@ -80,6 +82,7 @@ function resumeTimer() {
     timerRunning = true;
     resumeBtn.textContent = "Pause";
   }
+
 }
 
 //event listeners
@@ -101,3 +104,6 @@ startBtn.addEventListener("click", function () {
 });
 
 resumeBtn.addEventListener("click", resumeTimer);
+
+// Initialize the clock display on page load
+initializeClock();
